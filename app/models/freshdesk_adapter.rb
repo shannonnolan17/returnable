@@ -1,10 +1,10 @@
 class FreshdeskAdapter < ApplicationRecord
-  def create_ticket
+  def create_ticket(description, subject, email)
     require 'rubygems'
     require 'rest_client'
     require 'json'
 
-    freshdesk_domain = 'http://returnable.freshdesk.com'
+    freshdesk_domain = 'returnable'
 
     user_name_or_api_key = 'ENV["FRESHWORKS_API_KEY"]'
 
@@ -12,10 +12,9 @@ class FreshdeskAdapter < ApplicationRecord
 
     json_payload = { status: 2,
                      priority: 1,
-                     description: 'test ticket creation with attachments',
-                     subject: 'new ticket sample',
-                     cc_emails: ['myemail@testexample.com', 'test@testexample.com'],
-                     email: 'shannonnolan17@gmail.com' }.to_json
+                     description: description,
+                     subject: subject,
+                     email: email }.to_json
 
     freshdesk_api_path = 'api/v2/tickets'
 
