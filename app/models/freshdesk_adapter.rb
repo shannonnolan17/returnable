@@ -1,6 +1,6 @@
 class FreshdeskAdapter < ApplicationRecord
 
-  def create_ticket(description, email)
+  def self.create_ticket(description, email)
     require 'rubygems'
     require 'rest_client'
     require 'json'
