@@ -1,5 +1,5 @@
 <div class='container'>
-  <%= form_for @ticket, url: {action: "create"}, html: {class: "post-form form-group", multipart: true}, class: 'form-control' do |f| %>
+  <%= form_for @ticket, url: {action: "create"}, class: 'form-control' do |f| %>
 
   <%= f.text_area :description, class: "desc-input new-post-text form-control", placeholder: "Description"%>
 
