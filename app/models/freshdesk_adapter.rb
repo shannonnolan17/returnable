@@ -1,0 +1,2 @@
+class FreshdeskAdapter < ApplicationRecord
+end
