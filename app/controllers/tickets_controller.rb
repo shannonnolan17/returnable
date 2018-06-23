@@ -3,14 +3,18 @@ class TicketsController < ActionController::Base
 
   end
 
+  def new
+
+  end
+
   def create
-    @ticket = FreshdeskAdapter.create_ticket(params[:subject], params[:description], params[:email])
+    @ticket = FreshdeskAdapter.create_ticket( params[:description], params[:email])
   end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit(:subject, :description, :price, :negotiable, :category_id, :status, :image)
+    params.require(:ticket).permit(:description, :email)
   end
 
 end
