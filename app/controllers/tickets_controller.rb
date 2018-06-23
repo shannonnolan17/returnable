@@ -4,7 +4,7 @@ class TicketsController < ActionController::Base
   end
 
   def new
-
+    @ticket = Ticket.new
   end
 
   def create
