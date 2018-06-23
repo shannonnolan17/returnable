@@ -1,0 +1,3 @@
+class PBLabelAdapter < ApplicationRecord
+
+end
