@@ -1,5 +1,5 @@
 class FreshdeskAdapter < ApplicationRecord
-  def create_ticket(description, subject, email)
+  def create_ticket(description, email)
     require 'rubygems'
     require 'rest_client'
     require 'json'
@@ -13,7 +13,7 @@ class FreshdeskAdapter < ApplicationRecord
     json_payload = { status: 2,
                      priority: 1,
                      description: description,
-                     subject: subject,
+                     subject: 'Return',
                      email: email }.to_json
 
     freshdesk_api_path = 'api/v2/tickets'
