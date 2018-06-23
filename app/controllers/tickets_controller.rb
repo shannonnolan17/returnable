@@ -8,7 +8,10 @@ class TicketsController < ActionController::Base
   end
 
   def create
-    new_ticket = FreshdeskAdapter.create_ticket(params[:description], params[:email])
+    description = params[:ticket][:description]
+    email = params[:ticket][:email]
+    @ticket = FreshdeskAdapter.create_ticket(description, email)
+
   end
 
   private

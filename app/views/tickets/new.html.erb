@@ -1,9 +1,9 @@
 <div class='container'>
-  <%= form_for @ticket, url: {action: "create"}, class: 'form-control' do |f| %>
+  <%= form_for @ticket, url: {action: "create"}, class: '' do |f| %>
 
-  <%= f.text_area :description, class: "desc-input new-post-text form-control", placeholder: "Description"%>
+  <%= f.text_field :description, class: "desc-input new-post-text form-control", placeholder: "Description"%>
 
-  <%= f.text_area :email, class: "desc-input new-post-text form-control", placeholder: "Email to contact you"%>
+  <%= f.email_field :email, class: "desc-input new-post-text form-control", placeholder: "Email to contact you"%>
 
   <%= f.submit "Return", class: "create-button" %>
  <% end %>

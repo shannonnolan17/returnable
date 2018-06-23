@@ -1,13 +1,13 @@
+require 'rubygems'
+require 'rest_client'
+require 'json'
 class FreshdeskAdapter < ApplicationRecord
 
   def self.create_ticket(description, email)
-    require 'rubygems'
-    require 'rest_client'
-    require 'json'
 
     freshdesk_domain = 'returnable'
 
-    user_name_or_api_key = 'ENV["FRESHWORKS_API_KEY"]'
+    user_name_or_api_key = 'yhfp3YNzit3lXKdeO5lU'
 
     password_or_x = 'X'
 
