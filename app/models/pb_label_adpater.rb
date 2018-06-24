@@ -1,8 +1,13 @@
-require 'HTTParty'
+require 'rubygems'
+require 'rest_client'
+require 'json'
 
 class PBLabelAdapter < ApplicationRecord
 
-  def create_label(company, name, phone, email, residential, addressLines, cityTown, stateProvince, postalCode, countryCode)
+  def self.create_label(company, name, phone, email, residential, addressLines, cityTown, stateProvince, postalCode, countryCode)
+
+    base_uri = 'https://api-sandbox.pitneybowes.com/shippingservices/v1/shipments'
+
     headers = { 'X-PB-TransactionId'=> 2,
                'Authorization'=> 'Bearer tZ4ZIydG0vmXYdc0vIKQTyI3Eray',
                'Content-Type'=> 'application/json'}
@@ -15,7 +20,7 @@ class PBLabelAdapter < ApplicationRecord
         "email": email,
         "residential": residential,
         "addressLines": [
-          addressLines
+          addressLine1, addressLine2, addressLine3
         ],
         "cityTown": cityTown,
         "stateProvince": stateProvince,
@@ -98,6 +103,15 @@ class PBLabelAdapter < ApplicationRecord
         }
       ]
     }
+
+    site = RestClient::Resource.new(base_uri, headers)
+
+    begin
+      response = site.post(request)
+      puts response
+    rescue RestClient::Exception => exception
+      puts 'API Error'
+    end
 
   end
 

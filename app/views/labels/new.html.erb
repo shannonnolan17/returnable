@@ -1,0 +1,17 @@
+<div class='container'>
+  <%= form_for @label, url: {action: "create"}, class: '' do |f| %>
+
+  <%= f.text_field :company, class: "", placeholder: "Company"%>
+  <%= f.text_field :name, class: "", placeholder: "Name"%>
+  <%= f.text_field :phone, class: "", placeholder: "Phone"%>
+  <%= f.text_field :email, class: "", placeholder: "Email"%>
+  <%= f.select :residential, [["yes", true], ["no", false]], class: "", placeholder: "Residential"%>
+  <%= f.text_field :addressLines, class: "", placeholder: "Address Line"%>
+  <%= f.text_field :cityTown, class: "", placeholder: "City"%>
+  <%= f.text_field :stateProvince, class: "", placeholder: "State"%>
+  <%= f.text_field :countryCode, class: "", placeholder: "Country"%>
+
+
+  <%= f.submit "Print Return Label", class: "create-button" %>
+ <% end %>
+</div>
