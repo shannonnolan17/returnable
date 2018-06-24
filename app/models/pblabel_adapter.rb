@@ -8,9 +8,10 @@ class PblabelAdapter < ApplicationRecord
 
     base_uri = 'https://api-sandbox.pitneybowes.com/shippingservices/v1/shipments'
 
-    headers = {'Authorization'=> "Bearer tZ4ZIydG0vmXYdc0vIKQTyI3Eray",
-               'X-PB-TransactionId'=> 2,
-               'Content-Type'=> 'application/json'}
+    # headers = {'Authorization'=> 'Bearer zeqoehkeVWtO7tte3mnoRl8SsnVA',
+    #            'X-PB-TransactionId'=> 2}
+
+    site = RestClient::Resource.new(base_uri)
 
     request = {
       "fromAddress": {
@@ -107,16 +108,11 @@ class PblabelAdapter < ApplicationRecord
     p request
     p "**************"
 
-    site = RestClient::Resource.new(base_uri, headers)
-
-    p site
-    p "**************"
 
     begin
-      response = site.post(request)
+      response = site.post(request, headers = {'Authorization'=> 'Bearer zeqoehkeVWtO7tte3mnoRl8SsnVA', 'X-PB-TransactionId'=> 2, :content_type=>'application/json'})
       puts response
     rescue RestClient::Exception => exception
-      puts response
       puts 'API Error'
       puts "Response Code: #{exception.response.code} Response Body: #{exception.response.body} "
     end
