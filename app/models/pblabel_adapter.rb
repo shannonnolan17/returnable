@@ -2,14 +2,14 @@ require 'rubygems'
 require 'rest_client'
 require 'json'
 
-class PBLabelAdapter < ApplicationRecord
+class PblabelAdapter < ApplicationRecord
 
   def self.create_label(company, name, phone, email, residential, addressLines, cityTown, stateProvince, postalCode, countryCode)
 
     base_uri = 'https://api-sandbox.pitneybowes.com/shippingservices/v1/shipments'
 
-    headers = { 'X-PB-TransactionId'=> 2,
-               'Authorization'=> 'Bearer tZ4ZIydG0vmXYdc0vIKQTyI3Eray',
+    headers = {'Authorization'=> "Bearer tZ4ZIydG0vmXYdc0vIKQTyI3Eray",
+               'X-PB-TransactionId'=> 2,
                'Content-Type'=> 'application/json'}
 
     request = {
@@ -20,7 +20,7 @@ class PBLabelAdapter < ApplicationRecord
         "email": email,
         "residential": residential,
         "addressLines": [
-          addressLine1, addressLine2, addressLine3
+          addressLines
         ],
         "cityTown": cityTown,
         "stateProvince": stateProvince,
@@ -95,22 +95,30 @@ class PBLabelAdapter < ApplicationRecord
       "shipmentOptions": [
         {
           "name": "SHIPPER_ID",
-          "value": "9021678263"
+          "value": "9015297803"
         },
         {
           "name": "ADD_TO_MANIFEST",
-          "value": "true"
+          "value": "false"
         }
       ]
-    }
+    }.to_json
+
+    p request
+    p "**************"
 
     site = RestClient::Resource.new(base_uri, headers)
+
+    p site
+    p "**************"
 
     begin
       response = site.post(request)
       puts response
     rescue RestClient::Exception => exception
+      puts response
       puts 'API Error'
+      puts "Response Code: #{exception.response.code} Response Body: #{exception.response.body} "
     end
 
   end
