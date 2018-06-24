@@ -8,7 +8,7 @@ class PickupsController < ActionController::Base
   end
 
   def create
-    @pickup = PickupAdapter.create_pickup(params[:pickup][:company], params[:pickup][:name], params[:pickup][:phone], params[:pickup][:email], params[:pickup][:residential], params[:pickup][:addressLines], params[:pickup][:cityTown], params[:pickup][:stateProvince], params[:pickup][:postalCode], params[:pickup][:countryCode], params[:pickup][:packageLocation], params[:pickup][:carrier], params[:pickup][:specialInstructions])
+    @pickup = PickupAdapter.create_pickup(params[:pickup][:company], params[:pickup][:name], params[:pickup][:phone], params[:pickup][:email], params[:pickup][:residential], params[:pickup][:addressLines], params[:pickup][:cityTown], params[:pickup][:stateProvince], params[:pickup][:postalCode], params[:pickup][:countryCode], params[:pickup][:carrier], params[:pickup][:packageLocation], params[:pickup][:specialInstructions])
 
   end
 
