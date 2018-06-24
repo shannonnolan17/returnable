@@ -8,9 +8,6 @@ class PblabelAdapter < ApplicationRecord
 
     base_uri = 'https://api-sandbox.pitneybowes.com/shippingservices/v1/shipments'
 
-    # headers = {'Authorization'=> 'Bearer zeqoehkeVWtO7tte3mnoRl8SsnVA',
-    #            'X-PB-TransactionId'=> 2}
-
     site = RestClient::Resource.new(base_uri)
 
     request = {
