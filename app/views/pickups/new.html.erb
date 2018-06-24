@@ -12,7 +12,9 @@
   <%= f.text_field :postalCode, class: "", placeholder: "Zip Code"%>
   <%= f.text_field :countryCode, class: "", placeholder: "Country"%>
   <%= f.text_field :carrier, class: "", placeholder: "Carrier"%>
-  <%= f.options_for_select(:packageLocation, [["Front Door", "Front Door"], ["Back Door", "Back Door"], ["Side Door", "Side Door"], ["Knock on Door/Ring Bell", "Knock on Door/Ring Bell"], ["Mail Room", "Mail Room"], ["Office", "Office"], ["Reception", "Reception"], ["In/At Mailbox", "In/At Mailbox"], ["Other", "Other"]) class: "", placeholder: "Package Location"%>
+
+  <%= f.text_field :packageLocation, [["Front Door", "Front Door"], ["Back Door", "Back Door"], ["Side Door", "Side Door"], ["Knock on Door/Ring Bell", "Knock on Door/Ring Bell"], ["Mail Room", "Mail Room"], ["Office", "Office"], ["Reception", "Reception"], ["In/At Mailbox", "In/At Mailbox"], ["Other", "Other"]], class: "", placeholder: "Package Location"%>
+
   <%= f.text_field :specialInstructions, class: "", placeholder: "Special Instructions"%>
 
 

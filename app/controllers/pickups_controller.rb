@@ -1,4 +1,4 @@
-class PickupController < ActionController::Base
+class PickupsController < ActionController::Base
   def index
 
   end
