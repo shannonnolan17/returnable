@@ -1,0 +1,23 @@
+<div class='container'>
+  <%= form_for @pickup, url: {action: "create"}, class: '' do |f| %>
+
+  <%= f.text_field :company, class: "", placeholder: "Company"%>
+  <%= f.text_field :name, class: "", placeholder: "Name"%>
+  <%= f.text_field :phone, class: "", placeholder: "Phone"%>
+  <%= f.text_field :email, class: "", placeholder: "Email"%>
+  <%= f.select :residential, [["Yes", true], ["No", false]], class: "", placeholder: "Residential"%>
+  <%= f.text_field :addressLines, class: "", placeholder: "Address Line"%>
+  <%= f.text_field :cityTown, class: "", placeholder: "City"%>
+  <%= f.text_field :stateProvince, class: "", placeholder: "State"%>
+  <%= f.text_field :postalCode, class: "", placeholder: "Zip Code"%>
+  <%= f.text_field :countryCode, class: "", placeholder: "Country"%>
+  <%= f.text_field :carrier, class: "", placeholder: "Carrier"%>
+
+  <%= f.text_field :packageLocation, [["Front Door", "Front Door"], ["Back Door", "Back Door"], ["Side Door", "Side Door"], ["Knock on Door/Ring Bell", "Knock on Door/Ring Bell"], ["Mail Room", "Mail Room"], ["Office", "Office"], ["Reception", "Reception"], ["In/At Mailbox", "In/At Mailbox"], ["Other", "Other"]], class: "", placeholder: "Package Location"%>
+
+  <%= f.text_field :specialInstructions, class: "", placeholder: "Special Instructions"%>
+
+
+  <%= f.submit "Set Pickup", class: "create-button" %>
+ <% end %>
+</div>
