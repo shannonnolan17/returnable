@@ -4,18 +4,18 @@ class PickupController < ActionController::Base
   end
 
   def new
-    @pickup = Label.new
+    @pickup = Pickup.new
   end
 
   def create
-    @pickup = PblabelAdapter.create_label(params[:label][:company], params[:label][:name], params[:label][:phone], params[:label][:email], params[:label][:residential], params[:label][:addressLines], params[:label][:cityTown], params[:label][:stateProvince], params[:label][:postalCode], params[:label][:countryCode])
+    @pickup = PickupAdapter.create_pickup(params[:pickup][:company], params[:pickup][:name], params[:pickup][:phone], params[:pickup][:email], params[:pickup][:residential], params[:pickup][:addressLines], params[:pickup][:cityTown], params[:pickup][:stateProvince], params[:pickup][:postalCode], params[:pickup][:countryCode], params[:pickup][:packageLocation], params[:pickup][:carrier], params[:pickup][:specialInstructions])
 
   end
 
   private
 
-  def label_params
-    params.require(:label).permit(:company, :name, :phone, :email, :residential, :addressLines, :cityTown, :stateProvince, :postalCode, :countryCode)
+  def pickup_params
+    params.require(:pickup).permit(:company, :name, :phone, :email, :residential, :addressLines, :cityTown, :stateProvince, :postalCode, :countryCode, :carrier, :specialInstructions, :packageLocation)
   end
 
 end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :tickets
 
+  resource :pickups
+
   resources :labels
 
   root 'welcome#index'
